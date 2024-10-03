@@ -1,0 +1,46 @@
+﻿@model List<Portfolio.Models.TblExperiences>
+@{ 
+    int x = 0;
+}
+
+<div class="experience" id="experience">
+    <div class="container">
+        <header class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
+            <p>Özgeçmişim</p>
+            <h2>Deneyimlerim</h2>
+        </header>
+        @foreach (var item in Model)
+        {
+            if (item.ExperienceID % 2 == 1)
+            {
+            <div class="timeline">
+                <div class="timeline-item left wow slideInLeft" data-wow-delay="0.1s">
+                    <div class="timeline-text">
+                        <div class="timeline-date">@item.StartYear - @item.EndYear </div>
+                        <h2>@item.Title</h2>
+                        <h4>@item.Company /@item.Location </h4>
+                        <p>
+                            @item.Description
+                        </p>
+                    </div>
+                </div>
+            </div>
+            }
+            else
+            {
+            <div class="timeline">
+                <div class="timeline-item right wow slideInRight" data-wow-delay="0.1s">
+                    <div class="timeline-text">
+                        <div class="timeline-date">@item.StartYear - @item.EndYear </div>
+                        <h2>@item.Title</h2>
+                        <h4>@item.Company /@item.Location</h4>
+                        <p>
+                            @item.Description
+                        </p>
+                    </div>
+                </div>
+            </div>
+                }
+            }
+    </div>
+</div>

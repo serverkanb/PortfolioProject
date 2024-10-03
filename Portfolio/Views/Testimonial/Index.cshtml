@@ -1,0 +1,42 @@
+﻿@model List<Portfolio.Models.TblTestimonials>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<br />
+<h3>Referanslarım</h3>
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Resim</th>
+        <th>Hakkımda ki Yorumlar</th>
+        <th>Ad-Soyad</th>
+        <th>Görevi</th>
+        <th>Durumu</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Aktif</th>
+        <th>Pasif</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.TestimonialId</td>
+            <td>@item.ImageUrl</td>
+            <td>@item.Comment</td>
+            <td>@item.NameSurname</td>
+            <td>@item.Title</td>
+            <td>@(item.Status==true ? "Aktif" :"Pasif")</td>
+            <td><a href="/Testimonial/DeleteTestimOnial/@item.TestimonialId" class="btn btn-outline-danger">Sil</a></td>
+            <td><a href="/Testimonial/UpdateTestimOnial/@item.TestimonialId" class="btn btn-outline-info">Güncelle</a></td>
+            <td><a href="/Testimonial/MakeActive/@item.TestimonialId" class="btn btn-outline-success">Aktif</a></td>
+            <td><a href="/Testimonial/MakePassive/@item.TestimonialId" class="btn btn-outline-secondary">Pasif</a></td>
+        </tr>
+    }
+
+</table>
+
+<a href="/Testimonial/AddTestimOnial" class="btn btn-outline-success">Yeni Referans Ekle</a>

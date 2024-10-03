@@ -1,0 +1,27 @@
+﻿@model Portfolio.Models.TblProjects
+@{
+    ViewBag.Title = "UpdateProject";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<br />
+<h3>Proje Güncelleme Sayfası</h3>
+
+<form method="text">
+    <input type="hidden" name="ProjectId" value="@Model.ProjectId" />
+    <label>Proje İsmi</label>
+    <input type="text" name="ProjectName" value="@Model.ProjectName" class="form-control" />
+    <label>Resim Url</label>
+    <input type="text" name="ImageUrl" value="@Model.ImageUrl" class="form-control" />
+    <label>Github Url</label>
+    <input type="text" name="GithubUrl" value="@Model.GithubUrl" class=form-control"" />
+    <label>Kategori</label>
+    @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.category, "Kategori Seçiniz", new { @class = "form-control" })
+    <br />
+    <br />
+    <button class="btn btn-outline-primary">Güncelle</button>
+
+
+
+</form>
+
